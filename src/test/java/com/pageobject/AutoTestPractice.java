@@ -24,7 +24,7 @@ public class AutoTestPractice {
         open("/automation-practice-form");
         $("#firstName").setValue("Maxim");
         $("#lastName").setValue("Dolgodvorov");
-        $("#userEmail").setValue("mail@mail.ru");
+        $("#userEmail").setValue("Maxim@maxim.ru");
         $("#gender-radio-1").$(byText("Male")).click();
         $("#userNumber").setValue("0123456789");
         $("#dateOfBirthInput").click();
