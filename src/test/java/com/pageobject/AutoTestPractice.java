@@ -25,7 +25,7 @@ public class AutoTestPractice {
         $("#firstName").setValue("Maxim");
         $("#lastName").setValue("Dolgodvorov");
         $("#userEmail").setValue("Maxim@maxim.ru");
-        $("#gender-radio-1").$(byText("Male")).click();
+        $("[for=gender-radio-1]").click();
         $("#userNumber").setValue("0123456789");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("April");
