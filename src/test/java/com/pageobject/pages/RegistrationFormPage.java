@@ -1,16 +1,18 @@
-package com.pageobject;
+package com.pageobject.pages;
 
-import com.codeborne.selenide.Condition;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.lang.module.Configuration;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
+ public class RegistrationFormPage {
 
-public class AutoTestPractice {
+    RegistrationFormPage registrationFormPage = new RegistrationFormPage();
 
     @BeforeAll
     static void setUp() {
@@ -21,6 +23,8 @@ public class AutoTestPractice {
 
     @Test
     void formTest() {
+        registrationFormPage.openPage();
+
         open("/automation-practice-form");
         $("#firstName").setValue("Maxim");
         $("#lastName").setValue("Dolgodvorov");
