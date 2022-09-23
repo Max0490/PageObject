@@ -1,5 +1,7 @@
 package com.pageobject.pages;
 
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -13,6 +15,19 @@ import static com.codeborne.selenide.Selenide.open;
  public class RegistrationFormPage {
 
     RegistrationFormPage registrationFormPage = new RegistrationFormPage();
+    public CalendarComponent calendarComponent = new CalendarComponent();
+    private ResultsModal resultsModal = new ResultsModal();
+
+
+    private SelenideElement
+            firstNameInput = $("#firstName");
+            lastNameInput = $("#lastName");
+            emailInput = $("#userEmail");
+
+    private final static String TITLE_TEXT = "Student Registration Form";
+
+
+
 
     @BeforeAll
     static void setUp() {
