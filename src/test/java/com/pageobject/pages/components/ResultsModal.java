@@ -14,8 +14,7 @@ public class ResultsModal {
         return this;
     }
     public ResultsModal checkResult(String key, String value) {
-        $(".table-responsive").$(byText(key))
-                .parent().shouldHave(text(value));
+        $(".table-responsive").$(byText(key)).parent().shouldHave(text(value));
 
         return this;
 
