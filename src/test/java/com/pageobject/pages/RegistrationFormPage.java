@@ -15,66 +15,114 @@ import static com.codeborne.selenide.Selenide.open;
 
  public class RegistrationFormPage {
 
-     private final static String TITLE_TEXT = "Student Registration Form";
-    private CalendarComponent calendarComponent = new CalendarComponent();
-    private ResultsModal resultsModal = new ResultsModal();
+     private final CalendarComponent calendarComponent = new CalendarComponent();
+     private final ResultsModal resultsTableComponent =new ResultsModal();
+     private final SelenideElement
+             firstNameInput = $("#firstName"),
+             lastNameInput = $("#lastName"),
+             emailInput = $("#userEmail"),
+             genderSelect = $("#genterWrapper"),
+             numberInput = $("#userNumber"),
+             birthDateInput = $("#dateOfBirthInput"),
+             hobbiesInput = $("#hobbiesWrapper"),
+             subjectsInput = $("#subjectsInput"),
+             pictureUpload = $("#uploadPicture"),
+             adressInput = $("#currentAddress"),
+             stateInput = $("#react-select-3-input"),
+             cityInput = $("#react-select-4-input"),
+             submitButton = $("#submit");
 
-    private SelenideElement
-            firstNameInput = $("#firstName");
-            lastNameInput = $("#lastName");
-            emailInput = $("#userEmail");
+     public RegistrationFormPage openPage(){
+         open("/automation-practice-form");
 
-    public RegistrationFormPage openPage() {
-        open("/automation-practice-form");
-        $(".practice-form-wrapper").shouldHave(text(TITLE_TEXT));
-
-        return this
-    }
-    public RegistrationFormPage setFirstName(String value) {
-        firstNameInput.setValue(value);
-
-        return this
-    }
-     public RegistrationFormPage clearFirstName() {
-         firstNameInput.clear();
-
-         return this
+         return this;
      }
+
+     public RegistrationFormPage setFirstName(String value) {
+         firstNameInput.setValue(value);
+
+         return this;
+     }
+
      public RegistrationFormPage setLastName(String value) {
          lastNameInput.setValue(value);
 
-         return this
+         return this;
      }
      public RegistrationFormPage setEmail(String value) {
          emailInput.setValue(value);
 
-         return this
+         return this;
      }
      public RegistrationFormPage setGender(String value) {
-         $("#genterWrapper").$(byText(value)).click();
-
-         return this
-     }
-     public RegistrationFormPage setNumber(String value) {
-         $("#userNumber").setValue(value);
-
-         return this
-     }
-     public RegistrationFormPage setBirthDate(String day, String month, String year) {
-         $("#dateOfBirthInput").click();
-         calendarComponent.setDate(day, month, year);
+         genderSelect.$(byText(value)).click();
 
          return this;
+     }
+
+     public RegistrationFormPage setNumber(String value) {
+         numberInput.setValue(value);
+
+         return this;
+     }
+     public RegistrationFormPage setBirthDate(String day, String month,String year) {
+         birthDateInput.click();
+         calendarComponent.setDate(day,month,year);
+
+         return this;
+
+     }
+     public RegistrationFormPage setHobbies(String value) {
+         hobbiesInput.$(byText(value)).click();
+
+         return this;
+
+     }
+     public RegistrationFormPage setSubjects(String value) {
+         subjectsInput.setValue(value).pressEnter();
+
+         return this;
+
+     }
+     public RegistrationFormPage setUploadPicture(String fileName) {
+         pictureUpload.uploadFromClasspath(fileName);
+
+         return this;
+
+     }
+     public RegistrationFormPage setAddress(String value) {
+         adressInput.setValue(value);
+
+         return this;
+
+     }
+     public RegistrationFormPage setState(String state) {
+         $(stateInput).setValue(state).pressEnter();
+
+         return this;
+
+     }
+     public RegistrationFormPage setCity(String city) {
+         $(cityInput).setValue(city).pressEnter();
+
+         return this;
+
+     }
+     public void setSubmit() {
+         submitButton.click();
+
      }
      public RegistrationFormPage checkResultsTableVisible() {
-         resultsModal.checkVisible();
+         resultsTableComponent.checkVisible();
 
          return this;
-     }
 
+     }
      public RegistrationFormPage checkResult(String key, String value) {
-         resultsModal.checkResult(key, value);
+         resultsTableComponent.checkResult(key, value);
 
          return this;
+
      }
-}
+
+ }
