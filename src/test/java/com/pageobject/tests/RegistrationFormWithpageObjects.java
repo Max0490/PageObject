@@ -14,8 +14,8 @@ import org.junit.jupiter.api.Test;
         }
 
         @Test
-        static void fillTests() {
-            RegistrationFormPage.openPage()
+        void fillTests() {
+            practiceFormPage.openPage()
                     .setFirstName("Maxim")
                     .setLastName("Dolgodvorov")
                     .setEmail("maxim@maxim.ru")
@@ -30,7 +30,7 @@ import org.junit.jupiter.api.Test;
                     .setCity("Noida")
                     .setSubmit();
 
-            RegistrationFormPage.checkResultsTableVisible()
+            practiceFormPage.checkResultsTableVisible()
                     .checkResult("Student Name","Maxim Dolgodvorov")
                     .checkResult("Student Email","maxim@maxim.ru")
                     .checkResult("Gender","Male")
