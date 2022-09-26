@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
         }
 
         @Test
-        void fillTests() {
+        static void fillTests() {
             RegistrationFormPage.openPage()
                     .setFirstName("Maxim")
                     .setLastName("Dolgodvorov")
